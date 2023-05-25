@@ -24,6 +24,7 @@ namespace Evergreen.App
     public partial class MainWindow : Window
     {
         public NetworkViewModel Network = new NetworkViewModel();
+        public List<MultiChoiceNode> MultiNodes = new List<MultiChoiceNode>();
 
         public MainWindow()
         {

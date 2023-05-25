@@ -22,7 +22,8 @@ namespace Evergreen.App.Nodes
 
             Start = new ValueNodeOutputViewModel<bool>()
             {
-                Name = "End transition",
+                Name = "Begin story",
+                MaxConnections = 1,
                 Value = Observable.Return(true)
             };
             this.Outputs.Add(Start);

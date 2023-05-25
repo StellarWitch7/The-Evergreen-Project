@@ -26,13 +26,15 @@ namespace Evergreen.App.Nodes
 
             Begin = new ValueNodeInputViewModel<bool>()
             {
-                Name = "Begin choice"
+                Name = "Begin choice",
+                MaxConnections = 100
             };
             this.Inputs.Add(Begin);
 
             ChoiceOne = new ValueNodeOutputViewModel<bool>()
             {
                 Name = "A",
+                MaxConnections = 1,
                 Value = Observable.Return(true)
             };
             this.Outputs.Add(ChoiceOne);
@@ -40,6 +42,7 @@ namespace Evergreen.App.Nodes
             ChoiceTwo = new ValueNodeOutputViewModel<bool>()
             {
                 Name = "B",
+                MaxConnections = 1,
                 Value = Observable.Return(true)
             };
             this.Outputs.Add(ChoiceTwo);
