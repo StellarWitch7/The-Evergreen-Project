@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evergreen.App", "Evergreen.App\Evergreen.App.csproj", "{051575B5-21EF-4B34-BA60-5CF40DB332C1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Evergreen.Installer", "Evergreen.Installer\Evergreen.Installer.vdproj", "{96D99596-C44E-43E0-A56A-2037BCF2730B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{051575B5-21EF-4B34-BA60-5CF40DB332C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{051575B5-21EF-4B34-BA60-5CF40DB332C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{051575B5-21EF-4B34-BA60-5CF40DB332C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{051575B5-21EF-4B34-BA60-5CF40DB332C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D99596-C44E-43E0-A56A-2037BCF2730B}.Debug|Any CPU.ActiveCfg = Debug
+		{96D99596-C44E-43E0-A56A-2037BCF2730B}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CD7B4C2-24B2-4C55-944A-20A8D4299E83}
+	EndGlobalSection
+EndGlobal
