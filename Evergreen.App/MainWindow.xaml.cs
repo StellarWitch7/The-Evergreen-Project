@@ -29,8 +29,31 @@ namespace Evergreen.App
         {
             InitializeComponent();
 
+            //Add a starting node
+            Network.Nodes.Add(new StartNode());
+
             //Assign the viewmodel to the view. VERY IMPORTANT!
             networkView.ViewModel = Network;
+        }
+
+        private void addBoolChoice_Click(object sender, RoutedEventArgs e)
+        {
+            Network.Nodes.Add(new BooleanChoiceNode());
+        }
+
+        private void addTransition_Click(object sender, RoutedEventArgs e)
+        {
+            Network.Nodes.Add(new TransitionNode());
+        }
+
+        private void addMultiChoice_Click(object sender, RoutedEventArgs e)
+        {
+            Network.Nodes.Add(new MultiChoiceNode());
+        }
+
+        private void newStart_Click(object sender, RoutedEventArgs e)
+        {
+            Network.Nodes.Add(new StartNode());
         }
     }
 }
