@@ -1,20 +1,8 @@
 ﻿using DynamicData;
-using Evergreen.App.Nodes;
+using Evergreen.Lib.Nodes;
 using NodeNetwork.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Evergreen.App
 {
@@ -37,17 +25,12 @@ namespace Evergreen.App
             networkView.ViewModel = Network;
         }
 
-        private void addBoolChoice_Click(object sender, RoutedEventArgs e)
-        {
-            Network.Nodes.Add(new BooleanChoiceNode());
-        }
-
         private void addTransition_Click(object sender, RoutedEventArgs e)
         {
             Network.Nodes.Add(new TransitionNode());
         }
 
-        private void addMultiChoice_Click(object sender, RoutedEventArgs e)
+        private void addChoice_Click(object sender, RoutedEventArgs e)
         {
             Network.Nodes.Add(new MultiChoiceNode());
         }

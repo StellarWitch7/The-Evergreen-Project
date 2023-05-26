@@ -9,7 +9,7 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Evergreen.App.Nodes
+namespace Evergreen.Lib.Nodes
 {
     public class StartNode : StoryNode
     {

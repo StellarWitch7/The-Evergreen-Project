@@ -8,9 +8,8 @@
         mc:Ignorable="d" Height="600" Width="1200">
     <Grid>
         <nodenetwork:NetworkView x:Name="networkView" />
-        <Button Content="Bool Choice" x:Name="addBoolChoice" Click="addBoolChoice_Click" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top"/>
-        <Button Content="Transition" x:Name="addTransition" Click="addTransition_Click" HorizontalAlignment="Right" Margin="0,35,10,0" VerticalAlignment="Top"/>
-        <Button Content="Multi Choice" x:Name="addMultiChoice" Click="addMultiChoice_Click" HorizontalAlignment="Right" Margin="0,60,10,0" VerticalAlignment="Top"/>
-        <Button Content="Start" x:Name="newStart" Click="newStart_Click" HorizontalAlignment="Right" Margin="0,85,10,0" VerticalAlignment="Top"/>
+        <Button Content="Add Transition" x:Name="addTransition" Click="addTransition_Click" HorizontalAlignment="Right" Margin="0,35,10,0" VerticalAlignment="Top"/>
+        <Button Content="Add Choice" x:Name="addMultiChoice" Click="addChoice_Click" HorizontalAlignment="Right" Margin="0,60,10,0" VerticalAlignment="Top"/>
+        <Button Content="New Start" x:Name="newStart" Click="newStart_Click" HorizontalAlignment="Right" Margin="0,85,10,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

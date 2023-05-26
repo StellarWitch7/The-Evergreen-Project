@@ -1,23 +1,13 @@
 ﻿using DynamicData;
-using Evergreen.App.Util;
+using Evergreen.Lib.Nodes;
 using NodeNetwork.Toolkit.ValueNode;
 using NodeNetwork.ViewModels;
 using NodeNetwork.Views;
 using ReactiveUI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reactive.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Automation.Provider;
-using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Threading;
 
-namespace Evergreen.App.Nodes
+namespace Evergreen.Lib.Nodes
 {
     public class MultiChoiceNode : StoryNode
     {

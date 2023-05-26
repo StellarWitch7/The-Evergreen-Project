@@ -15,13 +15,19 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_07B9D3ECE0414911BC642B72E420705D"
+        "MsmKey" = "8:_1BB3A6357CC44314B8D5BC9BD06068E2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_627EB602FA9B4F19A519760B0BA86C3B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_ED23C41E4515461191CE4F1F923B5924"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -200,15 +206,70 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D0F4B83C0BAF47C7B8C8F8CC6017D6C1"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_11B9FD7A58AD4EDE8FFE8BEE613F03FF"
                     {
-                    "Name" = "8:projects"
+                    "Name" = "8:Evergreen-App"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_74F919E6EE0E44EE90646C86AAB1CDA2"
+                    "Property" = "8:_4C1499BE013343EAA9BD167648FC91D4"
                         "Folders"
                         {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_70716D26F53645EFB7CE9DC4E0A11A08"
+                            {
+                            "Name" = "8:projects"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_74F919E6EE0E44EE90646C86AAB1CDA2"
+                                "Folders"
+                                {
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_9E885D5846084C329D100C39B528D52B"
+                            {
+                            "Name" = "8:exports"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_5192D29C2CE041978F93AD35316DFE9C"
+                                "Folders"
+                                {
+                                }
+                            }
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_A7C4627691624CE9AF76B925F952754C"
+                    {
+                    "Name" = "8:Evergreen-Game"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_C5DFDD255D9F4B2383AECABE3B817CD5"
+                        "Folders"
+                        {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_287A75FCB1A846E99FA4B1743AA72AEB"
+                            {
+                            "Name" = "8:stories"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_D75142CDF8364AF7A0DD0800D75C10F8"
+                                "Folders"
+                                {
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_2A12748AEF6A4D3F9289E6689F317B0E"
+                            {
+                            "Name" = "8:saves"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_2B6395410BD4480EB985916548CE7A0D"
+                                "Folders"
+                                {
+                                }
+                            }
                         }
                     }
                 }
@@ -241,17 +302,17 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Evergreen"
         "ProductCode" = "8:{70C73945-D5A7-4B15-8195-3ABD98FEE216}"
-        "PackageCode" = "8:{2A6CDE53-8944-494E-9118-18B172394946}"
+        "PackageCode" = "8:{8187F99E-125D-4162-B36F-874091D79E4D}"
         "UpgradeCode" = "8:{74EEA4F8-0C3B-4907-A396-18083155A0C6}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
-        "InstallAllUsers" = "11:FALSE"
+        "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:StellarWitch7"
         "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:"
+        "ARPHELPLINK" = "8:https://github.com/StellarWitch7/The-Evergreen-Project"
         "Title" = "8:Evergreen"
         "Subject" = "8:"
         "ARPCONTACT" = "8:StellarWitch7"
@@ -760,12 +821,12 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_07B9D3ECE0414911BC642B72E420705D"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1BB3A6357CC44314B8D5BC9BD06068E2"
             {
-            "SourcePath" = "8:..\\Evergreen.App\\obj\\Release\\net7.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\Evergreen.Game\\obj\\Release\\net7.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_88E14D56AC784AD3B03C31A5E667453F"
+            "Folder" = "8:_A7C4627691624CE9AF76B925F952754C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -780,7 +841,35 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
+            "OutputConfiguration" = "8:Release|Any CPU"
+            "OutputGroupCanonicalName" = "8:PublishItems"
+            "OutputProjectGuid" = "8:{15E05BF7-5618-4D9B-88DB-5AE1A6422351}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_ED23C41E4515461191CE4F1F923B5924"
+            {
+            "SourcePath" = "8:..\\Evergreen.App\\obj\\Release\\net7.0-windows\\apphost.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_11B9FD7A58AD4EDE8FFE8BEE613F03FF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:Release|Any CPU"
             "OutputGroupCanonicalName" = "8:PublishItems"
             "OutputProjectGuid" = "8:{051575B5-21EF-4B34-BA60-5CF40DB332C1}"
             "ShowKeyOutput" = "11:TRUE"
