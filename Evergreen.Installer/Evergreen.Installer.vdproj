@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_627EB602FA9B4F19A519760B0BA86C3B"
+        "MsmKey" = "8:_07B9D3ECE0414911BC642B72E420705D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CEE59282930A4E2FB629C111378B484D"
+        "MsmKey" = "8:_627EB602FA9B4F19A519760B0BA86C3B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -49,22 +49,59 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\Evergreen.Installer.msi"
+        "OutputFilename" = "8:Release\\evergreen-installer.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
-        "Compression" = "3:2"
+        "Compression" = "3:3"
         "SignOutput" = "11:FALSE"
         "CertificateFile" = "8:"
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.7.0.x86"
+                    {
+                    "Name" = "8:.NET Runtime 7.0.5 (x86)"
+                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.7.0.x86"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -163,6 +200,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D0F4B83C0BAF47C7B8C8F8CC6017D6C1"
+                    {
+                    "Name" = "8:projects"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_74F919E6EE0E44EE90646C86AAB1CDA2"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_A1CFC437B1144F13B620EFD21B0D47B3"
@@ -191,9 +239,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Evergreen.Installer"
+        "ProductName" = "8:Evergreen"
         "ProductCode" = "8:{70C73945-D5A7-4B15-8195-3ABD98FEE216}"
-        "PackageCode" = "8:{487BA873-CC1C-446C-AD4A-545016F7F85B}"
+        "PackageCode" = "8:{2A6CDE53-8944-494E-9118-18B172394946}"
         "UpgradeCode" = "8:{74EEA4F8-0C3B-4907-A396-18083155A0C6}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -201,12 +249,12 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:bitwisedan@gmail.com"
+        "Manufacturer" = "8:StellarWitch7"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Evergreen.Installer"
+        "Title" = "8:Evergreen"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:bitwisedan@gmail.com"
+        "ARPCONTACT" = "8:StellarWitch7"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
@@ -712,9 +760,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_CEE59282930A4E2FB629C111378B484D"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_07B9D3ECE0414911BC642B72E420705D"
             {
-            "SourcePath" = "8:..\\Evergreen.App\\obj\\Debug\\net7.0-windows\\Evergreen.App.dll"
+            "SourcePath" = "8:..\\Evergreen.App\\obj\\Release\\net7.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_88E14D56AC784AD3B03C31A5E667453F"
@@ -733,7 +781,7 @@
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
+            "OutputGroupCanonicalName" = "8:PublishItems"
             "OutputProjectGuid" = "8:{051575B5-21EF-4B34-BA60-5CF40DB332C1}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"

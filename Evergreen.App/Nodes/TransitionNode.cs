@@ -25,13 +25,15 @@ namespace Evergreen.App.Nodes
 
             Begin = new ValueNodeInputViewModel<bool>()
             {
-                Name = "Begin transition"
+                Name = "Begin transition",
+                MaxConnections = 100
             };
             this.Inputs.Add(Begin);
 
             End = new ValueNodeOutputViewModel<bool>()
             {
                 Name = "End transition",
+                MaxConnections = 1,
                 Value = Observable.Return(true)
             };
             this.Outputs.Add(End);

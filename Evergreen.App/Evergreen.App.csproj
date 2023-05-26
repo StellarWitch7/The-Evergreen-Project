@@ -5,11 +5,24 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <SignAssembly>False</SignAssembly>
+    <AssemblyName>evergreen-app</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controls\**" />
+    <EmbeddedResource Remove="Controls\**" />
+    <None Remove="Controls\**" />
+    <Page Remove="Controls\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NodeNetwork" Version="6.0.0" />
     <PackageReference Include="NodeNetworkToolkit" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Evergreen.Lib\Evergreen.Lib.csproj" />
   </ItemGroup>
 
 </Project>
