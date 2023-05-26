@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Evergreen.App.Data
+namespace Evergreen.Lib.Data
 {
     public class ProgressTarget
     {
