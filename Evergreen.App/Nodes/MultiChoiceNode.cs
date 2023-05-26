@@ -1,6 +1,7 @@
 ﻿using DynamicData;
 using Evergreen.App.Util;
 using NodeNetwork.Toolkit.ValueNode;
+using NodeNetwork.ViewModels;
 using NodeNetwork.Views;
 using ReactiveUI;
 using System;
@@ -10,15 +11,17 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Automation.Provider;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Evergreen.App.Nodes
 {
     public class MultiChoiceNode : StoryNode
     {
         public ValueNodeInputViewModel<bool> Begin { get; }
-        public List<ValueNodeOutputViewModel<bool>> Exits = new List<ValueNodeOutputViewModel<bool>>();
-        private List<string> CurrentOutputNames = new List<string>();
 
         public MultiChoiceNode()
         {
@@ -32,7 +35,11 @@ namespace Evergreen.App.Nodes
             };
             this.Inputs.Add(Begin);
 
-            CheckForFullOutputs();
+            //Begin updates
+            var dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0);
+            dispatcherTimer.Start();
         }
 
         static MultiChoiceNode()
@@ -42,10 +49,10 @@ namespace Evergreen.App.Nodes
 
         private void Update()
         {
-            CheckForFullOutputs();
+            CheckOutputs();
         }
 
-        private void CheckForFullOutputs()
+        private void CheckOutputs()
         {
             int connectedOutputs = 0;
 
@@ -61,18 +68,43 @@ namespace Evergreen.App.Nodes
             {
                 CreateNewOutput();
             }
+            else if (connectedOutputs < this.Outputs.Count - 1)
+            {
+                RemoveExtraOutput();
+            }
         }
 
         private void CreateNewOutput()
         {
             var newOutput = new ValueNodeOutputViewModel<bool>()
             {
-                Name = Generators.RandomString(1, ref CurrentOutputNames, true),
+                Name = "new",
                 MaxConnections = 1,
                 Value = Observable.Return(true)
             };
-            this.Exits.Add(newOutput);
+
             this.Outputs.Add(newOutput);
+        }
+
+        private void RemoveExtraOutput()
+        {
+            var remove = new NodeOutputViewModel();
+
+            foreach (var output in this.Outputs.Items)
+            {
+                if (output.Connections.Count <= 0)
+                {
+                    remove = output;
+                    break;
+                }
+            }
+
+            this.Outputs.Remove(remove);
+        } 
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            Update();
         }
     }
 }

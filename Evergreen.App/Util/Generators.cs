@@ -10,33 +10,11 @@ namespace Evergreen.App.Util
 {
     public static class Generators
     {
-        public static string RandomString(int length, ref List<string> ignored, bool addResultToIgnored)
+        public static string RandomString(int length)
         {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
             var random = new Random();
-            bool generating = true;
-            var newString = string.Empty;
-
-            while (generating == true)
-            {
-                generating = false;
-                newString = new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
-                
-                foreach (string value in ignored)
-                {
-                    if (newString == value)
-                    {
-                        generating = true;
-                    }
-                }
-            }
-
-            if (addResultToIgnored)
-            {
-                ignored.Add(newString);
-            }
-
-            return newString;
+            return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }

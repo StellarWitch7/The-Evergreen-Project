@@ -54,6 +54,21 @@ namespace Evergreen.App
 
         private void newStart_Click(object sender, RoutedEventArgs e)
         {
+            List<StartNode> remove = new List<StartNode>();
+
+            foreach (var node in Network.Nodes.Items)
+            {
+                if (node is StartNode)
+                {
+                    remove.Add((StartNode)node);
+                }
+            }
+
+            foreach (StartNode node in remove)
+            {
+                Network.Nodes.Remove(node);
+            }
+
             Network.Nodes.Add(new StartNode());
         }
     }
