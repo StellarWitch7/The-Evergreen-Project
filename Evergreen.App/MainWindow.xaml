@@ -7,9 +7,22 @@
         xmlns:nodenetwork="clr-namespace:NodeNetwork.Views;assembly=NodeNetwork"
         mc:Ignorable="d" Height="600" Width="1200">
     <Grid>
-        <nodenetwork:NetworkView x:Name="networkView" />
-        <Button Content="Add Transition" x:Name="addTransition" Click="addTransition_Click" HorizontalAlignment="Right" Margin="0,35,10,0" VerticalAlignment="Top"/>
-        <Button Content="Add Choice" x:Name="addMultiChoice" Click="addChoice_Click" HorizontalAlignment="Right" Margin="0,60,10,0" VerticalAlignment="Top"/>
-        <Button Content="New Start" x:Name="newStart" Click="newStart_Click" HorizontalAlignment="Right" Margin="0,85,10,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+        <nodenetwork:NetworkView Grid.Column="0" x:Name="networkView"/>
+        <Button Grid.Column="0" Content="Add Transition" x:Name="addTransition" Click="addTransition_Click" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="0" Content="Add Choice" x:Name="addMultiChoice" Click="addChoice_Click" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="0" Content="New Start" x:Name="newStart" Click="newStart_Click" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top"/>
+        <ContentControl Grid.Column="1" Content="{Binding Path=SelectedNode, Mode=OneWay}">
+            <ContentControl.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
     </Grid>
 </Window>
