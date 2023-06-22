@@ -16,10 +16,8 @@ using System.Reactive.Linq;
 
 namespace Evergreen.Lib
 {
-    public partial class StoryNodeView : UserControl, IViewFor<StoryNode>, IObserver<char>
+    public partial class StoryNodeView : IViewFor<StoryNode>
     {
-        public string Text { get; set; }
-
         #region ViewModel
         public static readonly DependencyProperty ViewModelProperty =
             DependencyProperty.Register(nameof(ViewModel), typeof(StoryNode), typeof(StoryNodeView), new PropertyMetadata(null));
@@ -27,11 +25,7 @@ namespace Evergreen.Lib
         public StoryNode ViewModel
         {
             get => (StoryNode)GetValue(ViewModelProperty);
-            set
-            {
-                SetValue(ViewModelProperty, value);
-                value.Text.Subscribe(this);
-            }
+            set => SetValue(ViewModelProperty, value);
         }
 
         object IViewFor.ViewModel
@@ -49,22 +43,8 @@ namespace Evergreen.Lib
             this.WhenActivated(d =>
             {
                 this.WhenAnyValue(v => v.ViewModel).BindTo(this, v => v.NodeView.ViewModel).DisposeWith(d);
+                this.OneWayBind(ViewModel, vm => vm.Value, v => v.TextBlock.Text).DisposeWith(d);
             });
-        }
-
-        public void OnCompleted()
-        {
-
-        }
-
-        public void OnError(Exception error)
-        {
-
-        }
-
-        public void OnNext(char value)
-        {
-            this.Text = ViewModel.Text;
         }
     }
 }
