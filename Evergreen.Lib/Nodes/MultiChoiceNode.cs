@@ -34,7 +34,7 @@ namespace Evergreen.Lib.Nodes
 
         static MultiChoiceNode()
         {
-            Splat.Locator.CurrentMutable.Register(() => new NodeView(), typeof(IViewFor<MultiChoiceNode>));
+            Splat.Locator.CurrentMutable.Register(() => new StoryNodeView(), typeof(IViewFor<MultiChoiceNode>));
         }
 
         private void Update()
