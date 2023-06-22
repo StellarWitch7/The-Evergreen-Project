@@ -5,7 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Evergreen.App"
         xmlns:nodenetwork="clr-namespace:NodeNetwork.Views;assembly=NodeNetwork"
+        xmlns:nodes="clr-namespace:Evergreen.Lib.Nodes;assembly=Evergreen.Lib"
         mc:Ignorable="d" Height="600" Width="1200">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type nodes:MultiChoiceNode}">
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock Text="{Binding Path=Name}"/>
+                <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Output keys:"/>
+                <ItemsControl ItemsSource="{Binding Path=Outputs.Items, Mode=OneWay}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -15,14 +32,6 @@
         <Button Grid.Column="0" Content="Add Transition" x:Name="addTransition" Click="addTransition_Click" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
         <Button Grid.Column="0" Content="Add Choice" x:Name="addMultiChoice" Click="addChoice_Click" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
         <Button Grid.Column="0" Content="New Start" x:Name="newStart" Click="newStart_Click" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top"/>
-        <ContentControl Grid.Column="1" Content="{Binding Path=SelectedNode, Mode=OneWay}">
-            <ContentControl.ContentTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=Name}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ContentControl.ContentTemplate>
-        </ContentControl>
+        <ContentControl Grid.Column="1" Content="{Binding Path=SelectedNode, Mode=OneWay}"/>
     </Grid>
 </Window>
