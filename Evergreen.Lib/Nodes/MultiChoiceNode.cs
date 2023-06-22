@@ -90,7 +90,7 @@ namespace Evergreen.Lib.Nodes
             }
 
             this.Outputs.Remove(remove);
-        } 
+        }
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {

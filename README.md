@@ -1,2 +1,2 @@
 # Evergreen
-A WPF app that uses [NodeNetwork](https://github.com/Wouterdek/NodeNetwork) to create JSON files for processing by the [Unnamed](https://github.com/StellarWitch7/Unnamed). 
+A WPF app to create choose-your-own-adventure stories. 

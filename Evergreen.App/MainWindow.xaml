@@ -22,18 +22,6 @@
                 </ItemsControl>
             </StackPanel>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type nodes:StartNode}">
-            <StackPanel Margin="10,0,0,0">
-                <TextBlock Text="{Binding Path=Name}"/>
-                <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}"/>
-            </StackPanel>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type nodes:TransitionNode}">
-            <StackPanel Margin="10,0,0,0">
-                <TextBlock Text="{Binding Path=Name}"/>
-                <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}"/>
-            </StackPanel>
-        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>

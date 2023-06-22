@@ -16,7 +16,7 @@ using System.Reactive.Linq;
 
 namespace Evergreen.Lib
 {
-    public partial class StoryNodeView : IViewFor<StoryNode>
+    public partial class StoryNodeView : UserControl, IViewFor<StoryNode>
     {
         #region ViewModel
         public static readonly DependencyProperty ViewModelProperty =
@@ -37,13 +37,11 @@ namespace Evergreen.Lib
 
         public StoryNodeView()
         {
-            this.DataContext = this;
             InitializeComponent();
 
             this.WhenActivated(d =>
             {
                 this.WhenAnyValue(v => v.ViewModel).BindTo(this, v => v.NodeView.ViewModel).DisposeWith(d);
-                this.OneWayBind(ViewModel, vm => vm.Value, v => v.TextBlock.Text).DisposeWith(d);
             });
         }
     }

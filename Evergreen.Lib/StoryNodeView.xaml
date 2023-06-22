@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:local="clr-namespace:Evergreen.Lib"
              xmlns:nodenetwork="clr-namespace:NodeNetwork.Views;assembly=NodeNetwork"
              mc:Ignorable="d">
@@ -13,7 +12,7 @@
                 <Setter Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate>
-                            <TextBlock x:Name="TextBlock"/>
+                            <TextBlock Text="{Binding Path=Text}"/>
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>

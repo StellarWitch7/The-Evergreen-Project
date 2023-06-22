@@ -31,7 +31,7 @@ namespace Evergreen.Lib.Nodes
 
         static StartNode()
         {
-            Splat.Locator.CurrentMutable.Register(() => new StoryNodeView(), typeof(IViewFor<StartNode>));
+            Splat.Locator.CurrentMutable.Register(() => new NodeView(), typeof(IViewFor<StartNode>));
         }
     }
 }

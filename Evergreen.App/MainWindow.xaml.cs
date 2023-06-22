@@ -1,6 +1,5 @@
 ﻿using DynamicData;
 using Evergreen.Lib.Nodes;
-using NodeNetwork.Toolkit.ValueNode;
 using NodeNetwork.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -53,7 +52,6 @@ namespace Evergreen.App
 
         private void newStart_Click(object sender, RoutedEventArgs e)
         {
-            /*
             List<StartNode> remove = new List<StartNode>();
 
             foreach (var node in Network.Nodes.Items)
@@ -70,7 +68,6 @@ namespace Evergreen.App
             }
 
             Network.Nodes.Add(new StartNode());
-            */
         }
 
         public void OnCompleted()

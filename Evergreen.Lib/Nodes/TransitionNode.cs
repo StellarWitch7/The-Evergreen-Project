@@ -41,7 +41,7 @@ namespace Evergreen.Lib.Nodes
 
         static TransitionNode()
         {
-            Splat.Locator.CurrentMutable.Register(() => new StoryNodeView(), typeof(IViewFor<TransitionNode>));
+            Splat.Locator.CurrentMutable.Register(() => new NodeView(), typeof(IViewFor<TransitionNode>));
         }
     }
 }
