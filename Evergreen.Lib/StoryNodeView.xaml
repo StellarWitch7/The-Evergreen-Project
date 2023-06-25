@@ -5,14 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:Evergreen.Lib"
              xmlns:nodenetwork="clr-namespace:NodeNetwork.Views;assembly=NodeNetwork"
+             xmlns:nodes="clr-namespace:Evergreen.Lib.Nodes;assembly=Evergreen.Lib"
              mc:Ignorable="d">
-    <nodenetwork:NodeView x:Name="NodeView">
+    <nodenetwork:NodeView x:Name="NodeView" MaxWidth="300">
         <nodenetwork:NodeView.LeadingControlPresenterStyle>
             <Style TargetType="ContentPresenter">
                 <Setter Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Path=Text}"/>
+                            <TextBlock Text="{Binding Path=Text}" TextWrapping="Wrap"/>
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>

@@ -9,17 +9,33 @@
         mc:Ignorable="d" Height="600" Width="1200">
     <Window.Resources>
         <DataTemplate DataType="{x:Type nodes:MultiChoiceNode}">
+            <ScrollViewer>
+                <StackPanel Margin="10,0,0,0">
+                    <TextBlock Text="{Binding Path=Name}"/>
+                    <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"/>
+                    <TextBlock Text="Output count:"/>
+                    <TextBox Text="{Binding Path=OutputCount, UpdateSourceTrigger=LostFocus}"/>
+                    <TextBlock Text="Output keys:"/>
+                    <ItemsControl ItemsSource="{Binding Path=Outputs.Items, Mode=OneWay}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type nodes:StartNode}">
             <StackPanel Margin="10,0,0,0">
                 <TextBlock Text="{Binding Path=Name}"/>
                 <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Output keys:"/>
-                <ItemsControl ItemsSource="{Binding Path=Outputs.Items, Mode=OneWay}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type nodes:TransitionNode}">
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock Text="{Binding Path=Name}"/>
+                <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </DataTemplate>
     </Window.Resources>

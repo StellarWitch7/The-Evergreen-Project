@@ -13,10 +13,11 @@ using System.Collections.Generic;
 using System.Reactive.Disposables;
 using System.Windows.Controls;
 using System.Reactive.Linq;
+using System.Windows.Threading;
 
 namespace Evergreen.Lib
 {
-    public partial class StoryNodeView : UserControl, IViewFor<StoryNode>
+    public partial class StoryNodeView : IViewFor<StoryNode>
     {
         #region ViewModel
         public static readonly DependencyProperty ViewModelProperty =

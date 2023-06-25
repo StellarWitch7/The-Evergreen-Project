@@ -5,12 +5,15 @@ using NodeNetwork.ViewModels;
 using NodeNetwork.Views;
 using ReactiveUI;
 using System.Reactive.Linq;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Threading;
 
 namespace Evergreen.Lib.Nodes
 {
     public class MultiChoiceNode : StoryNode
     {
+        private int _outputCount = 2;
         public ValueNodeInputViewModel<bool> Begin { get; }
 
         public MultiChoiceNode()
@@ -25,11 +28,20 @@ namespace Evergreen.Lib.Nodes
             };
             this.Inputs.Add(Begin);
 
-            //Begin updates
-            var dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0);
-            dispatcherTimer.Start();
+            CheckOutputs();
+        }
+
+        public int OutputCount
+        {
+            get
+            {
+                return _outputCount;
+            }
+            set
+            {
+                _outputCount = value;
+                CheckOutputs();
+            }
         }
 
         static MultiChoiceNode()
@@ -37,30 +49,42 @@ namespace Evergreen.Lib.Nodes
             Splat.Locator.CurrentMutable.Register(() => new StoryNodeView(), typeof(IViewFor<MultiChoiceNode>));
         }
 
-        private void Update()
-        {
-            CheckOutputs();
-        }
-
         private void CheckOutputs()
         {
-            int connectedOutputs = 0;
+            bool confirmed = false;
 
-            foreach(var output in this.Outputs.Items)
-            {
-                if (output.Connections.Count > 0)
-                {
-                    connectedOutputs++;
-                }
-            }
-
-            if (connectedOutputs >= this.Outputs.Count)
+            while (this.Outputs.Count < OutputCount)
             {
                 CreateNewOutput();
             }
-            else if (connectedOutputs < this.Outputs.Count - 1)
+
+            while (this.Outputs.Count > OutputCount)
             {
-                RemoveExtraOutput();
+                bool removeNamed = true;
+
+                foreach (var output in this.Outputs.Items)
+                {
+                    if (output.Name == "new")
+                    {
+                        removeNamed = false;
+                    }
+                }
+
+                if (removeNamed && !confirmed)
+                {
+                    if (MessageBox.Show("Reducing the amount of outputs will clear some of their names. Continue?",
+                        "test", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                    {
+                        OutputCount = this.Outputs.Count;
+                        return;
+                    }
+                    else
+                    {
+                        confirmed = true;
+                    }
+                }
+
+                RemoveExtraOutput(removeNamed);
             }
         }
 
@@ -76,13 +100,18 @@ namespace Evergreen.Lib.Nodes
             this.Outputs.Add(newOutput);
         }
 
-        private void RemoveExtraOutput()
+        private void RemoveExtraOutput(bool clearNamed)
         {
             var remove = new NodeOutputViewModel();
 
             foreach (var output in this.Outputs.Items)
             {
-                if (output.Connections.Count <= 0)
+                if (output.Name == "new")
+                {
+                    remove = output;
+                    break;
+                }
+                else if (clearNamed)
                 {
                     remove = output;
                     break;
@@ -90,11 +119,6 @@ namespace Evergreen.Lib.Nodes
             }
 
             this.Outputs.Remove(remove);
-        }
-
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
-        {
-            Update();
         }
     }
 }
