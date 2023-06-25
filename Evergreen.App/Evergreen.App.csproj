@@ -7,14 +7,8 @@
     <UseWPF>true</UseWPF>
     <SignAssembly>False</SignAssembly>
     <AssemblyName>evergreen-app</AssemblyName>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Controls\**" />
-    <EmbeddedResource Remove="Controls\**" />
-    <None Remove="Controls\**" />
-    <Page Remove="Controls\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NodeNetwork" Version="6.0.0" />

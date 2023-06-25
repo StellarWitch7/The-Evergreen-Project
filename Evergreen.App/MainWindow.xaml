@@ -5,12 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Evergreen.App"
         xmlns:nodenetwork="clr-namespace:NodeNetwork.Views;assembly=NodeNetwork"
+        xmlns:nodes="clr-namespace:Evergreen.Lib.Nodes;assembly=Evergreen.Lib"
         mc:Ignorable="d" Height="600" Width="1200">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type nodes:MultiChoiceNode}">
+            <ScrollViewer>
+                <StackPanel Margin="10,0,0,0">
+                    <TextBlock Text="{Binding Path=Name}"/>
+                    <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"/>
+                    <TextBlock Text="Output count:"/>
+                    <TextBox Text="{Binding Path=OutputCount, UpdateSourceTrigger=LostFocus}"/>
+                    <TextBlock Text="Output keys:"/>
+                    <ItemsControl ItemsSource="{Binding Path=Outputs.Items, Mode=OneWay}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type nodes:StartNode}">
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock Text="{Binding Path=Name}"/>
+                <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type nodes:TransitionNode}">
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock Text="{Binding Path=Name}"/>
+                <TextBox Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        <nodenetwork:NetworkView x:Name="networkView" />
-        <Button Content="Bool Choice" x:Name="addBoolChoice" Click="addBoolChoice_Click" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top"/>
-        <Button Content="Transition" x:Name="addTransition" Click="addTransition_Click" HorizontalAlignment="Right" Margin="0,35,10,0" VerticalAlignment="Top"/>
-        <Button Content="Multi Choice" x:Name="addMultiChoice" Click="addMultiChoice_Click" HorizontalAlignment="Right" Margin="0,60,10,0" VerticalAlignment="Top"/>
-        <Button Content="Start" x:Name="newStart" Click="newStart_Click" HorizontalAlignment="Right" Margin="0,85,10,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+        <nodenetwork:NetworkView Grid.Column="0" x:Name="networkView"/>
+        <Button Grid.Column="0" Content="Add Transition" x:Name="addTransition" Click="addTransition_Click" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="0" Content="Add Choice" x:Name="addMultiChoice" Click="addChoice_Click" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="0" Content="New Start" x:Name="newStart" Click="newStart_Click" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top"/>
+        <ContentControl Grid.Column="1" Content="{Binding Path=SelectedNode, Mode=OneWay}"/>
     </Grid>
 </Window>
